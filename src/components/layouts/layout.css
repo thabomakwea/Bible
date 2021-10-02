@@ -1,0 +1,13 @@
+body {
+  background-color: #f9f8f8;
+}
+.accordion-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.accordion-item .btn-outline-primary {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 5px;
+}

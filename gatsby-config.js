@@ -29,6 +29,38 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     url: `http://localhost/bible/graphql`,
+    //   },
+    // },
+    {
+      resolve: '@martinreiche/gatsby-firestore',
+      options: {
+        credential: require("./firebase.json"),
+        types: [
+          {
+            type: 'KJV21',
+            collection: '21st Century King James version',
+            map: doc => ({}),
+            subCollections: [
+              {
+                type: 'Chapter1',
+                collection: 'Chapter 1',
+                map: doc => ({
+                  chapter: doc.chapter,
+                  raw: doc.raw,
+                  verse: doc.verse,
+                  verse_id: doc.verse_id,
+                  verse_number: doc.verse_number
+                })
+              },
+            ],
+          }
+        ]
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
