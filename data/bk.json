@@ -1,0 +1,14 @@
+{
+    "__collections__": {
+        "Genesis": {
+            "TeXb2coOAF2dByWwsL1S": {
+                "chapter": 1,
+                "raw": "<p>you do it</p>",
+                "text": "blah blah blah",
+                "bible": "KJV21",
+                "verse": 1,
+                "__collections__": {}
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 const Header = ({ siteTitle }) => (
   <header>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container">
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
                   <Link to="/page-2"className="nav-link active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
-                  <Link to="/page-2"className="nav-link">Link</Link>
+                  <Link to="/page-2"className="nav-link">Links</Link>
             </li>
             <li className="nav-item">
                   <Link to="/page-2"className="nav-link disabled">Disabled</Link>

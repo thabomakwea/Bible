@@ -41,24 +41,34 @@ module.exports = {
         credential: require("./firebase.json"),
         types: [
           {
-            type: 'KJV21',
-            collection: '21st Century King James version',
-            map: doc => ({}),
-            subCollections: [
-              {
-                type: 'Chapter1',
-                collection: 'Chapter 1',
-                map: doc => ({
-                  chapter: doc.chapter,
-                  raw: doc.raw,
-                  verse: doc.verse,
-                  verse_id: doc.verse_id,
-                  verse_number: doc.verse_number
-                })
-              },
-            ],
+            type: 'Genesis',
+            collection: 'Genesis',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Exodus',
+            collection: 'Exodus',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
           }
         ]
+      }
+    },
+    {
+      resolve: "gatsby-plugin-firebase",
+      options: {
+        credentials: require("./firebase.json")
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -1,13 +1,47 @@
 body {
-  background-color: #f9f8f8;
+  background-color: #fcfcfc;
+  font-family: "Atma";
 }
-.accordion-item {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+h1, h2 {
+  font-family: "Atma";
+  font-weight: 700;
+  text-transform: uppercase;
 }
-.accordion-item .btn-outline-primary {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    margin: 5px;
+@supports (font-variation-settings: normal) {
+  h1, h2 {
+    font-family: "Atma";
+    font-variation-settings: "wght" 700;
+  }
+}
+
+/* NAVBAR  */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 35px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #dc3545;
+  padding: 0px 14px;
+  border-radius: 5px;
+}
+
+
+/* TESTAMENTS */
+.testaments a {
+  width: initial;
+  text-decoration: none;
+}
+.testaments button {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    font-family: Arial;
+    width: 170px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+}
+.testaments button span {
+  
 }

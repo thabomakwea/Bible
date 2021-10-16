@@ -1,45 +1,16 @@
 import React from 'react'
+import { Link } from "gatsby"
 
-const Book = ({ children, title, data }) => {
+const Book = ({ children, title, count, data }) => {
+
     return (
         <>
+            <Link to="/kjv21/genesis/1" state={data}>
+                <button type="button" className="btn btn-light me-3 mb-3">
+                    {title} <span className="badge badge-pill bg-danger">{count}</span>
+                </button>
+            </Link>
 
-            <div className="accordion" id="accordionExample">      
-         
-                <div 
-                    className="accordion-item" 
-                >
-                    <h2 
-                        className="accordion-header" 
-                        id="headingOne"
-                    >
-                        <button 
-                            className="accordion-button collapsed" 
-                            type="button" 
-                            data-bs-toggle="collapse" 
-                            data-bs-target="#collapse-1"
-                            aria-expanded="false" 
-                            aria-controls="#collapse-1"
-                        >
-                            {title}
-                        </button>
-                    </h2>
-                    <div 
-                        id="collapse-1"
-                        className="accordion-collapse collapse" 
-                        aria-labelledby="headingOne" 
-                        data-bs-parent="#accordionExample"
-                    >
-                        <div className="accordion-body">
-                            <p>Chapters: 20</p>
-                            <p>Verses: 20</p>
-                            <h6>Select a chapter</h6>
-                            <main>{children} </main>
-                        </div>
-                    </div>
-                </div>
-      
-            </div>
         </>
     )
 }
