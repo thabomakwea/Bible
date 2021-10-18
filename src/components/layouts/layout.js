@@ -17,26 +17,27 @@ import DailyVerse from "../common/daily-verse/daily-verse"
 import Books from "../common/books/books"
 import Footer from "../common/footer/footer"
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  
   return (
     <>
       <NavBar></NavBar>
-      <div className="container"></div>
-      
+      <Spacing></Spacing>
+
+      <Spacing></Spacing>
+
       <Spacing></Spacing>
       
-      <Spacing></Spacing>
+      <div className="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Genesis</a></li>
+            <li class="breadcrumb-item active" aria-current="page">1</li>
+          </ol>
+        </nav>
+      </div>
       
-      <Spacing></Spacing>
+      
       {children}
       <Spacing></Spacing>
       <Footer></Footer>

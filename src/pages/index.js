@@ -34,6 +34,10 @@ const IndexPage = ({ data }) => {
       total: 50
     },
     {
+      title: "Numbers",
+      total: 50
+    },
+    {
       title: "Deuteronomy",
       total: 50
     },

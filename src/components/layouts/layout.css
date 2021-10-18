@@ -34,8 +34,8 @@ h1, h2 {
 .testaments button {
     font-size: 15px;
     font-weight: bold;
-    color: #333;
-    font-family: Arial;
+    /* color: #333; */
+    font-family: 'Atma';
     width: 170px;
     text-align: left;
     display: flex;
@@ -44,4 +44,25 @@ h1, h2 {
 }
 .testaments button span {
   
+}
+
+.chapter-header {
+  line-height: 50px;
+}
+
+.chapter-header span { 
+  margin-left: 20px;
+  margin-bottom: 20px;;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #dc3545;
+}
+
+button {
+    font-size: 15px;
+    font-weight: bold !important;
+    font-family: 'Atma';
+    text-transform: uppercase;
 }

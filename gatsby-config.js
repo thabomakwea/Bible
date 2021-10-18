@@ -61,6 +61,28 @@ module.exports = {
               text: doc.text,
               verse: doc.verse
             }),
+          },
+          {
+            type: 'Leviticus',
+            collection: 'Leviticus',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Numbers',
+            collection: 'Numbers',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
           }
         ]
       }
