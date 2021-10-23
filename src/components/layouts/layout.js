@@ -13,34 +13,31 @@ import Header from "../common/header/header"
 import "./layout.css"
 import NavBar from "../common/navbar/navbar"
 import Spacing from "../common/spacing/spacing"
-import DailyVerse from "../common/daily-verse/daily-verse"
-import Books from "../common/books/books"
+import Breadcrumb from "../common/breadcrumb/breadcrumb"
 import Footer from "../common/footer/footer"
-const Layout = ({ children }) => {
+import NavbarBottom from "../common/navbar_bottom/navbar_bottom"
+
+const Layout = ({ children, testament, chapter }) => {
   
   return (
     <>
-      <NavBar></NavBar>
-      <Spacing></Spacing>
+      <NavBar />
 
-      <Spacing></Spacing>
+      <Spacing />
+      <Spacing />
+      <Spacing />
+      
+      <Breadcrumb 
+        testament = { testament }
+        chapter = { chapter }
+      />
 
-      <Spacing></Spacing>
-      
-      <div className="container">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Genesis</a></li>
-            <li class="breadcrumb-item active" aria-current="page">1</li>
-          </ol>
-        </nav>
-      </div>
-      
-      
       {children}
-      <Spacing></Spacing>
-      <Footer></Footer>
+
+      <Spacing />
+      
+      <Footer />
+      <NavbarBottom />
     </>
   )
 }

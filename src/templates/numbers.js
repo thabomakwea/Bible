@@ -1,15 +1,23 @@
 import * as React from "react"
 import Layout from "../components/layouts/layout"
 import Chapter from "../components/common/chapter/chapter"
+import Pagination from "../components/common/pagination/pagination"
+import ChapterHeader from "../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
+import Verse from "../components/common/verse/verse"
+import NumberSelector from "../components/common/number_selector/number_selector"
+import Spacing from "../components/common/spacing/spacing"
 import { useState, useEffect } from 'react';
-import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 const ChapterDetails = ({ data, pageContext }) => {
-    console.log(pageContext)
-   
+    const [verse, setVerse] = useState();
+
     return (
-        <Layout>
+        <Layout
+            testament={pageContext.data.nodes[0].book}
+            chapter={pageContext.chapter}
+
+        >
             <div className="container chapter">
 
                 {/* <div className="row">
@@ -18,43 +26,78 @@ const ChapterDetails = ({ data, pageContext }) => {
                             Current Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
                             Verses: <strong> {data.allNumbers.edges.length}</strong>&nbsp;&nbsp;&nbsp;
                             Chapters: <strong> {pageContext.total_chapters}</strong>
-                           
+
                         </div>
                     </div>
                 </div> */}
 
                 <div className="row">
-                   
+
                     <div className="col-7">
-                        <h1 className="d-flex flex-row chapter-header">{pageContext.data.nodes[0].book}  <span className="badge bg-dark">Chapter {pageContext.chapter}</span></h1>
-                        {
-                            data.allNumbers.edges.map((node, i) =>
-                                <p key={i}> 
-                                    <span>{node.node.verse}.</span>
-                                    {node.node.text}
-                                </p>
-                            )
-                        }
 
+                        <ChapterHeader
+                            darkText={'Chapter ' + pageContext.chapter}
+                            normalText={pageContext.data.nodes[0].book}
+                        />
+
+                        <div class="alert alert-primary d-flex align-items-center" role="alert">
+                            <div>
+                                Current Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
+                                Verses: <strong> {data.allNumbers.edges.length}</strong>&nbsp;&nbsp;&nbsp;
+                                Chapters: <strong> {pageContext.total_chapters}</strong>
+
+                            </div>
+                        </div>
+
+                        <Verse
+                            verses={data.allNumbers}
+                            selectedVerse={verse}
+                        />
+
+                        <Pagination
+                            currentChapter={pageContext.chapter}
+                            totalChapters={pageContext.total_chapters}
+                            book={pageContext.data.nodes[0].book}
+                        />
                     </div>
+
                     <div className="col-4 offset-1">
-                        <h1 className="d-flex flex-row chapter-header">  <span className="badge bg-dark me-2 ms-0">{pageContext.total_chapters}</span> Chapters</h1>
-                        {
-                            Array(pageContext.total_chapters).fill(1).map((item, i) =>
-                                <Chapter key={i} title={i + 1} chapter={pageContext.chapter} book={pageContext.data.nodes[0].book}/>
-                            )
-                        }
+
+                        <ChapterHeader
+                            darkText={data.allNumbers.edges.length}
+                            normalText={'Verses'}
+                        />
+
+                        <NumberSelector
+                            title={'Select a verse'}
+                            numbers={data.allNumbers.edges.length}
+                            chapter={pageContext.chapter}
+                            book={pageContext.data.nodes[0].book}
+                            isVerse={true}
+                            setVerse={setVerse}
+                            primary={true}
+                        />
+
+                        <Spacing />
+
+                        <ChapterHeader
+                            darkText={pageContext.total_chapters}
+                            normalText={'Chapters'}
+                        />
+
+                        <NumberSelector
+                            title={'Select a chapter'}
+                            numbers={pageContext.total_chapters}
+                            chapter={pageContext.chapter}
+                            book={pageContext.data.nodes[0].book}
+                            isVerse={false}
+                            primary={false}
+                        />
+
                     </div>
 
                 </div>
 
-                <div className="row">
-                    <div className="col-12">
-                        <button type="button" className="btn btn-danger me-2"><FaChevronLeft /> Previou chapter</button>
-                        <button type="button" className="btn btn-dark me-2">Testaments</button>
-                        <button type="button" className="btn btn-danger">Next Chapter <FaChevronRight /> </button>
-                    </div>
-                </div>
 
             </div>
         </Layout>

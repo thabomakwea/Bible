@@ -2,47 +2,45 @@ import * as React from "react"
 import Layout from "../components/layouts/layout"
 import Chapter from "../components/common/chapter/chapter"
 import Pagination from "../components/common/pagination/pagination"
+import ChapterHeader from "../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
+import Verse from "../components/common/verse/verse"
+import NumberSelector from "../components/common/number_selector/number_selector"
+import Spacing from "../components/common/spacing/spacing"
+
 import { useState, useEffect } from 'react';
 
 const ChapterDetails = ({ data, pageContext }) => {
-    console.log(pageContext)
-   
+    const [verse, setVerse] = useState();
+  
     return (
-        <Layout>
-            <div className="container chapter">
+        <Layout
+            testament={ pageContext.data.nodes[0].book }
+            chapter={pageContext.chapter }
 
-                {/* <div className="row">
-                    <div class="alert alert-primary d-flex align-items-center" role="alert">
-                        <div>
-                            Current Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
-                            Verses: <strong> {data.allGenesis.edges.length}</strong>&nbsp;&nbsp;&nbsp;
-                            Chapters: <strong> {pageContext.total_chapters}</strong>
-                           
-                        </div>
-                    </div>
-                </div> */}
+        >
+            <div className="container chapter">
 
                 <div className="row">
                    
                     <div className="col-7">
 
-                        <h1 className="d-flex flex-row chapter-header">
-                            <span className="badge bg-dark ms-0 me-4">
-                                Chapter {pageContext.chapter}
-                            </span>
-                            {pageContext.data.nodes[0].book}  
-                            
-                        </h1>
-                        
-                        {
-                            data.allGenesis.edges.map((node, i) =>
-                                <p key={i}> 
-                                    <span>{node.node.verse}.</span>
-                                    {node.node.text}
-                                </p>
-                            )
-                        }
+                        <ChapterHeader
+                            darkText={ 'Chapter ' + pageContext.chapter }
+                            normalText={ pageContext.data.nodes[0].book }
+                        />
+
+                        <div className="alert alert-danger d-flex align-items-center" role="alert">
+                            <div>
+                                Testament: <strong> {pageContext.data.nodes[0].book}</strong>&nbsp;&nbsp;&nbsp;
+                                Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
+                                Verses: <strong> {data.allGenesis.edges.length}</strong>
+                            </div>
+                        </div>
+                        <Verse 
+                            verses={data.allGenesis }
+                            selectedVerse = { verse }
+                        />
                         
                         <Pagination 
                             currentChapter={pageContext.chapter} 
@@ -50,45 +48,49 @@ const ChapterDetails = ({ data, pageContext }) => {
                             book={pageContext.data.nodes[0].book} 
                         />
                     </div>
+                    
                     <div className="col-4 offset-1">
 
-                        {/* CHAPTERS  */}
-                        <h1 className="d-flex flex-row chapter-header">  
-                            <span className="badge bg-dark me-2 ms-0">
-                            {pageContext.total_chapters}</span> Chapters
-                        </h1>
+                        <ChapterHeader
+                            darkText={data.allGenesis.edges.length}
+                            normalText={'Verses'}
+                        />
+
+                        <NumberSelector
+                            title = { 'Select a verse' }
+                            numbers = { data.allGenesis.edges.length }
+                            chapter={pageContext.chapter}
+                            book = {pageContext.data.nodes[0].book}
+                            isVerse = { true }
+                            setVerse = { setVerse }
+                            primary = { true }
+                        />
+
+                        <Spacing />
                         
-                        <h3>Select a chapter</h3>
-                        {
-                            Array(pageContext.total_chapters).fill(1).map((item, i) =>
-                                <Chapter key={i} title={i + 1} chapter={pageContext.chapter} book={pageContext.data.nodes[0].book}/>
-                            )
-                        }
+                        <ChapterHeader
+                            darkText={pageContext.total_chapters}
+                            normalText={'Chapters'}
+                        />
 
-                        {/* VERSES  */}
-                        <h1 className="d-flex flex-row chapter-header mt-4">  <span className="badge bg-dark me-2 ms-0">{data.allGenesis.edges.length}</span> Verses</h1>
-                        <h3>Select a verse</h3>
+                        <NumberSelector
+                            title={'Select a chapter'}
+                            numbers={pageContext.total_chapters}
+                            chapter={pageContext.chapter}
+                            book={pageContext.data.nodes[0].book}
+                            isVerse = { false}
+                            primary={false}
+                        />
 
-                        {
-                            Array(data.allGenesis.edges.length).fill(1).map((item, i) =>
-                                <Chapter key={i} title={i + 1} chapter="" book="" />
-                            )
-                        }
                     </div>
 
-                </div>
-
-                <div className="row">
-                    <div className="col-7">
-                        
-                    </div>
-                    <div className="col-4 offset-1">
-                       
-                    </div>
-                </div>
-
+                </div>                
                 
+                <div className="row">
+                    
+                </div>
             </div>
+
         </Layout>
     )
 }

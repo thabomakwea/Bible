@@ -1,5 +1,6 @@
 import * as React from "react"
-import PropTypes from "prop-types"
+import { FaBookMedical } from 'react-icons/fa';
+
 import { Link } from "gatsby"
 
 const Header = ({ siteTitle }) => (
@@ -10,7 +11,8 @@ const Header = ({ siteTitle }) => (
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <Link to="/page-2" className="navbar-brand">{siteTitle}</Link>
+          <FaBookMedical />
+          <Link to="/page-2" className="navbar-brand"> { siteTitle } </Link>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
                   <Link to="/page-2"className="nav-link active" aria-current="page">Home</Link>

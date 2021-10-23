@@ -1,10 +1,9 @@
 import React from 'react'
-import { FaTwitter } from 'react-icons/fa';
-import { FaFacebookF } from 'react-icons/fa';
-import { FaInstagram } from 'react-icons/fa';
+
+import { FaQuestion } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-import { FaGooglePlay } from 'react-icons/fa';
-import { FaApple } from 'react-icons/fa';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { FiMoreHorizontal } from 'react-icons/fi';
 import { Link } from "gatsby"
 
 const NavBar = ({ children }) => {
@@ -23,13 +22,13 @@ const NavBar = ({ children }) => {
                     </div>
                 </div>
                 <div className="col d-flex justify-content-end ">
-                    <div className="scoial-icons">
-                        <button type="button" className="btn btn-danger me-2"><FaTwitter /></button>
-                        <button type="button" className="btn btn-danger me-2"><FaFacebookF /></button>
-                        <button type="button" className="btn btn-danger me-2"><FaInstagram /></button>
-                        <button type="button" className="btn btn-light me-2"><FaGooglePlay /></button>
-                        <button type="button" className="btn btn-light"><FaApple /></button>
-                    </div>
+                    <button type="button" className="btn btn-dark me-2">
+                        Donate
+                    </button>
+                    <button type="button" className="btn btn-dark me-2">
+                        Help 
+                    </button>
+                    <button className="btn btn-dark" type="button"><GiHamburgerMenu /></button>
                 </div>
             </div>
         </nav>

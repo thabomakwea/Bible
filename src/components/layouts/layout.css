@@ -55,6 +55,17 @@ h1, h2 {
   margin-bottom: 20px;;
 }
 
+.chapter {
+    font-family: 'Times New Roman', Times, serif, Arial;
+    font-size: large;
+}
+.chapter p span {
+    color: #dc3545;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+
 .breadcrumb a {
   text-decoration: none;
   color: #dc3545;
@@ -65,4 +76,19 @@ button {
     font-weight: bold !important;
     font-family: 'Atma';
     text-transform: uppercase;
+}
+
+/* selected_verse  */
+p.selected_verse {
+  font-size: 15px;
+  font-weight: bold !important;
+  font-family: 'Atma';
+  text-transform: uppercase;
+  background-color: #212529;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+}
+p.selected_verse span  { 
+   color: #fff;
 }
