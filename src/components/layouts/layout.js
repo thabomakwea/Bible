@@ -17,7 +17,7 @@ import Breadcrumb from "../common/breadcrumb/breadcrumb"
 import Footer from "../common/footer/footer"
 import NavbarBottom from "../common/navbar_bottom/navbar_bottom"
 
-const Layout = ({ children, testament, chapter }) => {
+const Layout = ({ children, testament, chapter, numbers, book, totalChapters, setVerse, selectedVerse }) => {
   
   return (
     <>
@@ -32,12 +32,20 @@ const Layout = ({ children, testament, chapter }) => {
         chapter = { chapter }
       />
 
-      {children}
+      { children }
 
       <Spacing />
       
       <Footer />
-      <NavbarBottom />
+      <NavbarBottom 
+        testament = { testament }
+        chapter = { chapter }
+        numbers = { numbers }
+        book = { book }
+        totalChapters = { totalChapters }
+        setVerse = { setVerse }
+        selectedVerse={selectedVerse}
+      />
     </>
   )
 }

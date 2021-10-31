@@ -22,13 +22,17 @@ const Breadcrumb = ({ testament, chapter}) => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     {
-                        breadcrumbs.map((breadcrumb, i) =>
-                            <li className="breadcrumb-item">
-                                <Link to={breadcrumb.link }>
-                                    { breadcrumb.title }
-                                </Link> 
-                            </li>
-                        )
+                        testament ?
+                            breadcrumbs.map((breadcrumb, i) =>
+                                <li key={i} className="breadcrumb-item">
+                                    <Link to={breadcrumb.link }>
+                                        { breadcrumb.title }
+                                    </Link> 
+                                </li>
+                            )
+                        :
+                        ''
+
                     }
                 </ol>
             </nav>

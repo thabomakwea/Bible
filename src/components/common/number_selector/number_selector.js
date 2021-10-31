@@ -4,33 +4,26 @@ import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { BsFillGridFill } from 'react-icons/bs';
 
-const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, primary }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, primary, selectedVerse }) => {
+    const [isOpen, setIsOpen] = useState(isVerse ? true : false);
     let defaultComponent = primary
     let selectorMessage = ''
     const chevronUp = <FaChevronUp />
     const chevronDown = <FaChevronDown />
     if (isVerse) { 
-        selectorMessage = book + ' chapter ' + chapter + ' has ' + numbers + ' verses ' 
+        selectorMessage = book + ' chapter ' + chapter + ' has ' + numbers + ' verses ' ;
     } else {
         selectorMessage = book + ' has ' + numbers + ' chapters '
     }
     useEffect(() => {
-        // console.log(isOpen)
     }, [isOpen])
 
     useEffect(() => {
-        console.log(defaultComponent)
     }, [defaultComponent])
-    // let button = <FaChevronDown />
-    
-    // const setSelector = (result) => {
-    //     selector = result;
-    // }
-    
+
     return (
         <>
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
                 { selectorMessage }
             </div>
             <h3> 
@@ -53,7 +46,7 @@ const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, prim
                     !isVerse ?
                         <Chapter key = { i } title = { i + 1 } chapter = { chapter } book = { book } isVerse = { isVerse }/>
                     :
-                        <Chapter key={i} title={i + 1} chapter={chapter} book={book} isVerse={isVerse} setVerse={ setVerse } />
+                        <Chapter key={i} title={i + 1} chapter={chapter} book={book} isVerse={isVerse} setVerse={setVerse} selectedVerse={selectedVerse } />
                 )
             }
         </>

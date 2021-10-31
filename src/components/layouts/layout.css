@@ -24,26 +24,32 @@ h1, h2 {
   padding: 0px 14px;
   border-radius: 5px;
 }
+.navbar-brand.bg-light {
+  color: #212529;
+  margin-right: 4px;
+}
 
 
 /* TESTAMENTS */
 .testaments a {
   width: initial;
   text-decoration: none;
+  margin-right: 5px;
+  padding: 0;
 }
 .testaments button {
     font-size: 15px;
     font-weight: bold;
     /* color: #333; */
     font-family: 'Atma';
-    width: 170px;
+    /* width: 170px; */
     text-align: left;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
-.testaments button span {
-  
+.card {
+  border-top: 5px solid #212529; 
 }
 
 .chapter-header {
@@ -65,6 +71,13 @@ h1, h2 {
     display: inline-block;
 }
 
+.chapter .container {
+  padding: 0px;
+}
+.chapter .container button {
+  /* margin-right: 0px !important;
+  width: 160px; */
+}
 
 .breadcrumb a {
   text-decoration: none;
@@ -91,4 +104,35 @@ p.selected_verse {
 }
 p.selected_verse span  { 
    color: #fff;
+}
+
+/* Drodown menu */
+
+.dropdown-menu {
+  background-color: #212529;
+  margin-top: 12px;
+}
+
+.dropdown-item {
+  color: #fcfcfc;
+  padding: .6rem .9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.dropdown-item:hover { 
+  background-color: #dc3545;
+  color: #fcfcfc;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+.card-title {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.list-group-item {
+  padding: 0.1rem 1rem;
 }

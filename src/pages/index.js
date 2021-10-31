@@ -1,21 +1,13 @@
 import * as React from "react"
-import { useState, useEffect} from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import Layout from "../components/layouts/layout"
 import Spacing from "../components/common/spacing/spacing"
 import DailyVerse from "../components/common/daily-verse/daily-verse"
 import Books from "../components/common/books/books"
-import Seo from "../components/layouts/seo"
-import Tile from "../components/common/tile/tile"
 import Book from "../components/common/book/book"
-import Chapter from "../components/common/chapter/chapter"
-import Verse from "../components/common/verse/verse"
 import _, { map } from 'underscore';
 
 const IndexPage = ({ data }) => {
-  const [selectedVerse, setSelectedVerse] = useState();
   const chapters = {
     genesis: data.allGenesis.nodes.filter((verse) => { return verse.chapter == "1" })
   }
@@ -183,23 +175,22 @@ const IndexPage = ({ data }) => {
   chapters.genesis = _.sortBy(chapters.genesis, function (obj) { return +obj.verse })
   
   return (
-    <Layout>
-      <DailyVerse title="Selected for you"></DailyVerse>
+    <Layout className="testament">
       <Spacing></Spacing>
-      <Books title = "Old testament">
+      <Books title = "New testament">
         {
 
           books.map((el, i) =>
-            <Book key={i} title={el.title} count={el.total} data={el}></Book>
+            <Book key={i} title={el.title} count={el.total} data={el} colSize={3} ></Book>
           )
         }
       </Books>
       <Spacing></Spacing>
-      <Books title="New testament">
+      <Books title="Old testament">
         {
 
           books.map((el, i) =>
-            <Book key={i} title={el.title} count={el.total}></Book>
+            <Book key={i} title={el.title} count={el.total} colSize={3}></Book>
           )
         }
       </Books>
