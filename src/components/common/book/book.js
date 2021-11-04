@@ -26,7 +26,7 @@ const Book = ({ children, title, count, data, book, colSize }) => {
             <div className={cols} >
             <Link to={link} state={data}>
             <Card
-                border="dark"
+                border="danger"
                 text='dark'
                 className="mb-2"
             >
@@ -34,7 +34,7 @@ const Book = ({ children, title, count, data, book, colSize }) => {
                         <div className="d-flex justify-content-between">
                             
                             <div>50 Chapters</div>
-                            <div>20 verses</div>
+                            <div>{count} verses</div>
                         </div>
                     </Card.Header>
                 <Card.Body>
@@ -46,8 +46,8 @@ const Book = ({ children, title, count, data, book, colSize }) => {
                         {/* </Link> */}
                                 <div className="d-flex justify-content-between">
                                     {/* <Link to={link} state={data}> */}
-                                    <div><FaCross /> {title}</div>
-                                    <Button variant="light">
+                                    <div> {title}</div>
+                                    <Button variant="danger">
                                         <FaChevronRight />
                                     </Button>
                                     {/* </Link> */}

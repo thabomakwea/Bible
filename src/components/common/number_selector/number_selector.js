@@ -29,7 +29,7 @@ const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, prim
             <h3> 
                 
                 <button 
-                    className="btn btn-dark"
+                    className="btn btn-danger"
                     onClick={() => {
                         setIsOpen(!isOpen)
                         defaultComponent = false

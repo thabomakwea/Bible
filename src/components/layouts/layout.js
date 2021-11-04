@@ -17,7 +17,7 @@ import Breadcrumb from "../common/breadcrumb/breadcrumb"
 import Footer from "../common/footer/footer"
 import NavbarBottom from "../common/navbar_bottom/navbar_bottom"
 
-const Layout = ({ children, testament, chapter, numbers, book, totalChapters, setVerse, selectedVerse }) => {
+const Layout = ({ children, testament, chapter, numbers, book, totalChapters, setVerse, selectedVerse, hideBottomNav }) => {
   
   return (
     <>
@@ -45,6 +45,7 @@ const Layout = ({ children, testament, chapter, numbers, book, totalChapters, se
         totalChapters = { totalChapters }
         setVerse = { setVerse }
         selectedVerse={selectedVerse}
+        hideBottomNav = { hideBottomNav }
       />
     </>
   )

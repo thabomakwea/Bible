@@ -216,7 +216,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             {
 
                                 books.map((el, i) =>
-                                    <Book key={i} title={el.title} count={el.total} colSize={4} ></Book>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
                             }
                         </Books>

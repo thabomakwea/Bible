@@ -1,35 +1,191 @@
 import * as React from "react"
 import Layout from "../components/layouts/layout"
-import Chapter from "../components/common/chapter/chapter"
 import Pagination from "../components/common/pagination/pagination"
 import ChapterHeader from "../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
 import Verse from "../components/common/verse/verse"
 import NumberSelector from "../components/common/number_selector/number_selector"
 import Spacing from "../components/common/spacing/spacing"
+import Books from "../components/common/books/books"
+import Book from "../components/common/book/book"
+import './testament.css'
 import { useState, useEffect } from 'react';
 
 const ChapterDetails = ({ data, pageContext }) => {
     const [verse, setVerse] = useState();
+    const books = [
+
+        {
+            title: "Genesis",
+            total: 50
+        },
+        {
+            title: "Exodus",
+            total: 50
+        },
+        {
+            title: "Leviticus",
+            total: 50
+        },
+        {
+            title: "Numbers",
+            total: 50
+        },
+        {
+            title: "Deuteronomy",
+            total: 50
+        },
+        {
+            title: "Joshua",
+            total: 50
+        },
+        {
+            title: "Judges",
+            total: 50
+        },
+        {
+            title: "Ruth",
+            total: 50
+        },
+        {
+            title: "1 Samuel",
+            total: 50
+        },
+        {
+            title: "2 Samuel",
+            total: 50
+        },
+        {
+            title: "1 Kings",
+            total: 50
+        },
+        {
+            title: "2 Kings",
+            total: 50
+        },
+        {
+            title: "1 Chronicles",
+            total: 50
+        },
+        {
+            title: "2 Chronicles",
+            total: 50
+        },
+        {
+            title: "Ezra",
+            total: 50
+        },
+        {
+            title: "Nehemiah",
+            total: 50
+        },
+        {
+            title: "Esther",
+            total: 50
+        },
+        {
+            title: "Job",
+            total: 50
+        },
+        {
+            title: "Psalms",
+            total: 50
+        },
+        {
+            title: "Proverbs",
+            total: 50
+        },
+        {
+            title: "Ecclesiastes",
+            total: 50
+        },
+        {
+            title: "Song of Songs",
+            total: 50
+        },
+        {
+            title: "Isaiah",
+            total: 50
+        },
+        {
+            title: "Jeremiah",
+            total: 50
+        },
+        {
+            title: "Lamentation",
+            total: 50
+        },
+        {
+            title: "Ezekiel",
+            total: 50
+        },
+        {
+            title: "Daniel",
+            total: 50
+        },
+        {
+            title: "Hosea",
+            total: 50
+        },
+        {
+            title: "Joel",
+            total: 50
+        },
+        {
+            title: "Amos",
+            total: 50
+        },
+        {
+            title: "Obadiah",
+            total: 50
+        },
+        {
+            title: "Jonah",
+            total: 50
+        },
+        {
+            title: "Micah",
+            total: 50
+        },
+        {
+            title: "Nahum",
+            total: 50
+        },
+        {
+            title: "Habakkuk",
+            total: 50
+        },
+        {
+            title: "Zephaniah",
+            total: 50
+        },
+        {
+            title: "Haggai",
+            total: 50
+        },
+        {
+            title: "Zechariah",
+            total: 50
+        },
+        {
+            title: "Malachi",
+            total: 50
+        },
+
+    ]
+
 
     return (
         <Layout
             testament={pageContext.data.nodes[0].book}
             chapter={pageContext.chapter}
-
+            totalChapters={pageContext.total_chapters}
+            numbers={data.allNumbers.edges.length}
+            book={pageContext.data.nodes[0].book}
+            setVerse={setVerse}
+            selectedVerse={verse}
         >
             <div className="container chapter">
-
-                {/* <div className="row">
-                    <div class="alert alert-primary d-flex align-items-center" role="alert">
-                        <div>
-                            Current Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
-                            Verses: <strong> {data.allNumbers.edges.length}</strong>&nbsp;&nbsp;&nbsp;
-                            Chapters: <strong> {pageContext.total_chapters}</strong>
-
-                        </div>
-                    </div>
-                </div> */}
 
                 <div className="row">
 
@@ -40,15 +196,11 @@ const ChapterDetails = ({ data, pageContext }) => {
                             normalText={pageContext.data.nodes[0].book}
                         />
 
-                        <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <div className="alert alert-danger d-flex align-items-center" role="alert">
                             <div>
-                                Current Chapter: <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
-                                Verses: <strong> {data.allNumbers.edges.length}</strong>&nbsp;&nbsp;&nbsp;
-                                Chapters: <strong> {pageContext.total_chapters}</strong>
-
+                                You are reading <strong> {pageContext.data.nodes[0].book}</strong>&nbsp; chapter <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
-
                         <Verse
                             verses={data.allNumbers}
                             selectedVerse={verse}
@@ -59,6 +211,24 @@ const ChapterDetails = ({ data, pageContext }) => {
                             totalChapters={pageContext.total_chapters}
                             book={pageContext.data.nodes[0].book}
                         />
+                        <Spacing />
+                        <Books title="New testament">
+                            {
+
+                                books.map((el, i) =>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4} ></Book>
+                                )
+                            }
+                        </Books>
+                        <Spacing></Spacing>
+                        <Books title="Old testament">
+                            {
+
+                                books.map((el, i) =>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
+                                )
+                            }
+                        </Books>
                     </div>
 
                     <div className="col-4 offset-1">
@@ -75,6 +245,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             book={pageContext.data.nodes[0].book}
                             isVerse={true}
                             setVerse={setVerse}
+                            selectedVerse={verse}
                             primary={true}
                         />
 
@@ -97,9 +268,9 @@ const ChapterDetails = ({ data, pageContext }) => {
                     </div>
 
                 </div>
-
-
+                <Spacing />
             </div>
+
         </Layout>
     )
 }

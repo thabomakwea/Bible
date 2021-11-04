@@ -20,7 +20,7 @@ const ChapterDetails = ({ data, pageContext }) => {
             total: 50
         },
         {
-            title: "Exodus",
+            title: "Deuteronomy",
             total: 50
         },
         {
@@ -180,7 +180,7 @@ const ChapterDetails = ({ data, pageContext }) => {
             testament={pageContext.data.nodes[0].book}
             chapter={pageContext.chapter}
             totalChapters={pageContext.total_chapters}
-            numbers={data.allExodus.edges.length}
+            numbers={data.allDeuteronomy.edges.length}
             book={pageContext.data.nodes[0].book}
             setVerse={setVerse}
             selectedVerse={verse}
@@ -202,7 +202,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             </div>
                         </div>
                         <Verse
-                            verses={data.allExodus}
+                            verses={data.allDeuteronomy}
                             selectedVerse={verse}
                         />
 
@@ -234,13 +234,13 @@ const ChapterDetails = ({ data, pageContext }) => {
                     <div className="col-4 offset-1">
 
                         <ChapterHeader
-                            darkText={data.allExodus.edges.length}
+                            darkText={data.allDeuteronomy.edges.length}
                             normalText={'Verses'}
                         />
 
                         <NumberSelector
                             title={'Select a verse'}
-                            numbers={data.allExodus.edges.length}
+                            numbers={data.allDeuteronomy.edges.length}
                             chapter={pageContext.chapter}
                             book={pageContext.data.nodes[0].book}
                             isVerse={true}
@@ -278,8 +278,8 @@ const ChapterDetails = ({ data, pageContext }) => {
 export default ChapterDetails
 
 export const query = graphql`
-query ExodusChapters ($chapter: String) {
-    allExodus(filter: { chapter: { eq: $chapter } }) {
+query DeuteronomyChapters ($chapter: String) {
+    allDeuteronomy(filter: { chapter: { eq: $chapter } }) {
     edges {
       node {
                 book

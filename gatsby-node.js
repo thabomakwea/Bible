@@ -57,6 +57,32 @@ exports.createPages = async ({actions, graphql}) => {
                     bible
                 }
                 }
+            },
+            allDeuteronomy {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allRuth {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
             }
         }
 
@@ -114,4 +140,57 @@ exports.createPages = async ({actions, graphql}) => {
             }
         })
     });
+
+    data.allDeuteronomy.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/deuteronomy/' + group.fieldValue,
+            component: path.resolve('./src/templates/deuteronomy.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allDeuteronomy.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allJoshua.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/joshua/' + group.fieldValue,
+            component: path.resolve('./src/templates/joshua.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allJoshua.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allJudges.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/Judges/' + group.fieldValue,
+            component: path.resolve('./src/templates/Judges.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allJudges.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allRuth.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/ruth/' + group.fieldValue,
+            component: path.resolve('./src/templates/ruth.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allRuth.group.length,
+                data: group
+
+            }
+        })
+    });
+
 }

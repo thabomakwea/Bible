@@ -15,11 +15,11 @@ const IndexPage = ({ data }) => {
 
     {
       title: "Genesis",
-      total: 50
+      total: data.allGenesis.nodes.length
     },
     {
       title: "Exodus",
-      total: 50
+      total: data.allGenesis.nodes.length
     },
     {
       title: "Leviticus",
@@ -173,9 +173,12 @@ const IndexPage = ({ data }) => {
   ]
 
   chapters.genesis = _.sortBy(chapters.genesis, function (obj) { return +obj.verse })
-  
+  console.log('avg', data.allGenesis.nodes )
   return (
-    <Layout className="testament">
+    <Layout 
+      className="testament"
+      hideBottomNav = {true}
+    >
       <Spacing></Spacing>
       <Books title = "New testament">
         {

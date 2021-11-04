@@ -19,8 +19,8 @@ h1, h2 {
   font-weight: 700;
   font-size: 35px;
   text-transform: uppercase;
-  color: #fff;
-  background-color: #dc3545;
+  color: #212529 !important;
+  background-color: transparent;
   padding: 0px 14px;
   border-radius: 5px;
 }
@@ -48,10 +48,32 @@ h1, h2 {
     justify-content: space-between;
     /* border: 1px solid #ccc; */
 }
-.card {
-  border-top: 5px solid #212529; 
+.card-header,
+.card-footer {
+  background-color: #f8d7da !important;
+  border: 0;
 }
-
+.card-body {
+  /* background-color: #ddd; */
+  border: 0
+}
+.card:hover { 
+  border-color: #dc3545 !important;
+  background-color: #dc3545;
+  color: #fcfcfc !important;
+}
+.card {
+  border-color: #f8d7da!important;
+   background-color: #f8d7da !important;
+}
+.card:hover button {
+  background-color: #dc3545;
+  color: #fcfcfc !important;
+}
+.card:hover .card-header, .card:hover .card-footer, .card:hover .card-body  {
+  background-color: #dc3545 !important;
+  border-color: #dc3545!important;
+}
 .chapter-header {
   line-height: 50px;
 }
@@ -62,8 +84,11 @@ h1, h2 {
 }
 
 .chapter {
-    font-family: 'Times New Roman', Times, serif, Arial;
     font-size: large;
+}
+
+.chapter p { 
+  font-family: 'Times New Roman', Times, serif, Arial;
 }
 .chapter p span {
     color: #dc3545;
@@ -135,4 +160,9 @@ p.selected_verse span  {
 
 .list-group-item {
   padding: 0.1rem 1rem;
+}
+
+/* navbar */
+.navbar {
+      background-color: #f8d7da !important;
 }

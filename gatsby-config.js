@@ -83,6 +83,61 @@ module.exports = {
               text: doc.text,
               verse: doc.verse
             }),
+          },
+          {
+            type: 'Deuteronomy',
+            collection: 'Deuteronomy',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Deuteronomy',
+            collection: 'Deuteronomy',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Joshua',
+            collection: 'Joshua',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Judges',
+            collection: 'Judges',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Ruth',
+            collection: 'Ruth',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
           }
         ]
       }

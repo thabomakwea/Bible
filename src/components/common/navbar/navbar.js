@@ -13,7 +13,7 @@ const NavBar = ({ children }) => {
         <nav className = "navbar fixed-top  navbar-dark bg-dark" >
             <div className="container">
                 <div className="col-4">
-                    <Link to="/" className="navbar-brand text-color-black">Holy Bibles <sup><FaCross /></sup></Link>
+                    <Link to="/" className="navbar-brand text-color-black">Holy Bibles</Link>
                     {/* <Link to="/" className="navbar-brand"> App</Link> */}
                 </div>
                 <div className="col-4">
