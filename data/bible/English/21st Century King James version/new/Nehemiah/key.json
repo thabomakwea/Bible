@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bible-site",
+  "private_key_id": "82afd612c09741392d72e3e63aa583e791c2a619",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDWbzncJ1CK05q6\nF1gJeGGveMQ0xK0HsUWoy8YTslgF1UZ9t6i7ZAl6hUx6CddhZDwhNkU4qZ14ffZu\nUbdC0O7HF6fbdHGAzuAn+yUvTTVDf4LoDZOwVSb86rQFfqTFVuA/dh3oPOrANxNw\nKQcfUVy3FYlSU/kg82i7m9zQuH2WVvo7xRNzPhlp7dFUF60C3HJOToIRPA8VL+C4\n79uOxs3JgRYZLQPuDn/dwBs+ZSrKenT9xefIVf/anJRGKM7gHclmoFNWHaThOJjP\nNHG5NMEMYfuwI7NEjQ+bT8YaIvdBUdFN+N5cBFQxes+Sz21LrXPi82E63GAOt3uJ\n5TQ53cXbAgMBAAECggEAAlsjdpN3w2Ekxxe9HOqdgOAc7hDypX9qJwDt6nOL2X5B\nHxwA7gyyTERxF1VxjzaeqQ4HaWZUKvVZw/n85iTLd+o5G24pXfD/N8xjwjOH364K\njUFNyBsazI7kctrDmmPS/+VRm8WdodP89v09YYVQXCLZl3XLKJOGAkZKnFGtg3Hg\nxtJ5b0BvMy7EWXMVWaR8jbU4bg6mofejw2FW2UeT2AgKKXQq+wEf108jEPB3LCnH\nVA8s9begUK6601ixZkVd6dg0GjsLTGp8w/CL3Up5QTs3+oS5EfmXlK67qGJiGcPE\nRsgGbxO8SSeNssu6bWk1zVT2OavSa9Fg0S8X9DQnkQKBgQDw2Xi46IAClEKFU3eI\n44JWG98f7lvT+PO03A0jn4h4Zcd5YqyeGodsc8bdZrX3X/JynMDRAm5Z9m4Su9sa\nHWiV59LpgjIqV1cHudZ3cmnf24wHFamyml/WiSPWAtT9xJhYoIIt9NpjQ3TkKCwU\nihHtRPwjmkifX2HPOZzCnHUBrQKBgQDj7GETqdwjNaE09NNVJHO5dtHIWn4IbWnc\nUKHNWQRcS1qK7DryvH/sXhOh7Dv+CUDOCMcwOdA3AiX51OXoUxoa2IaQajvHhio7\n80QPxg7nSSUTrnW1zKHBmlhKNnfytkJSxoX2/KlRCUXIiXtUeQlqTjUQ0kp1w8SW\nONQYRbImpwKBgQCvVrMTcnfW6NZwt64bIv388DeEyINjkybgsR6Do523gOkyToq6\nYzfZ1YOeJSsuF1Sq6cFZp/psVgIWc1pz7Zr5Hxcl1hntRz5dqoYe2VWImg2cDsJG\n+ynwRlCnedJTmK8MPnXnPQ1MHIzZmQFWRpn8cS9aP/TEyaysLxYXe82W1QKBgFbr\nkYXvNE2VKTpJ18JTmXJ0NsKiiAfsuf9UHLB0Ly6HaisqtbxWWK6qnfAVaDeUDcvF\nGzlwAtDHl/Xz1A3Ki10LkB3I9a08pCSivCUL0ikwAtzDno5LULDFjMAYj5vXF+n7\nXaF4b5XA5IT6sTbgxc9trd0RZWYN1422dGQhSDRnAoGAdHmm7a7nYaWaPG8ceHzY\nmpnaCwtAf8l5nM4uvYgwhC4XfymHJwv4M9g4t7K7rTbiGUfThPinZwHwtbFYN5Ml\n9cGnhPdBLcJBr5+cArRzqe2FtB9QFntamiJDwElCDRJR9mjSRVYWESC0/p6CGhP7\nA06gbZPxw+lVH9BdB7OZ9Qo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-xo8sg@bible-site.iam.gserviceaccount.com",
+  "client_id": "106253095079438180535",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xo8sg%40bible-site.iam.gserviceaccount.com"
+}

@@ -30,15 +30,17 @@ module.exports = {
       },
     },
     // {
-    //   resolve: `gatsby-source-wordpress`,
-    //   options: {
-    //     url: `http://localhost/bible/graphql`,
-    //   },
+    //   // resolve: `gatsby-source-wordpress`,
+    //   // options: {
+    //   //   url: `http://localhost/bible/graphql`,
+    //   // },
     // },
     {
       resolve: '@martinreiche/gatsby-firestore',
       options: {
-        credential: require("./firebase.json"),
+        appConfig: {
+          projectId: "bible-site",
+        },
         types: [
           {
             type: 'Genesis',
@@ -138,16 +140,100 @@ module.exports = {
               text: doc.text,
               verse: doc.verse
             }),
+          },
+          {
+            type: 'OneSamuel',
+            collection: '1-Samuel',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'TwoSamuel',
+            collection: '2-Samuel',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'OneKings',
+            collection: '1-Kings',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'TwoKings',
+            collection: '2-Kings',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
           }
         ]
       }
     },
-    {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        credentials: require("./firebase.json")
-      }
-    }
+    // {
+      // resolve: "gatsby-plugin-firebase",
+      // options: {
+        // credentials: require("./firebase.json"),
+    //     credentials: {
+    //       apiKey: "AIzaSyCPmQ2BQ2mIRdTJkVTO-wXT6zjxuTuiD78",
+    //       authDomain: "bible-site.firebaseapp.com",
+    //       projectId: "bible-site",
+    //       storageBucket: "bible-site.appspot.com",
+    //       messagingSenderId: "936984469826",
+    //       appID: "1:936984469826:web:71b65970c5635c0337a8db",
+    //       measurementId: "G-C87EYRPJKF",
+    //       databaseURL: 'http://localhost:4001?ns=bible-site'
+    //     },
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-source-firestore`,
+    //   options: {
+    //     // credential or appConfig
+    //     // credential: require(`./credentials.json`),
+    //     appConfig: {
+    //       // apiKey: "AIzaSyCPmQ2BQ2mIRdTJkVTO-wXT6zjxuTuiD78",
+    //       // authDomain: "bible-site.firebaseapp.com",
+    //       // projectId: "bible-site",
+    //       // storageBucket: "bible-site.appspot.com",
+    //       // messagingSenderId: "936984469826",
+    //       // appID: "1:936984469826:web:71b65970c5635c0337a8db",
+    //       databaseURL: 'http://localhost:9652/?ns=bible-site'
+
+    //     },
+    //     types: [
+    //       {
+    //         type: 'Genesis',
+    //         collection: 'Genesis',
+    //         map: doc => ({
+    //           bible: doc.bible,
+    //           book: doc.book,
+    //           chapter: doc.chapter,
+    //           text: doc.text,
+    //           verse: doc.verse
+    //         }),
+    //       },
+    //     ],
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

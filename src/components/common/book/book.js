@@ -6,7 +6,7 @@ import { FaChevronRight, FaCross } from 'react-icons/fa';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 const Book = ({ children, title, count, data, book, colSize }) => {
-    const link = "/kjv21/" + title.toLowerCase() +"/1"
+    const link = "/kjv21/" + title.replace(' ', '-').toLowerCase() +"/1"
     const cols = "col-" + colSize
     return (
         <>

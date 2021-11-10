@@ -5,16 +5,13 @@ import { useState, useEffect } from 'react';
 import { BsFillGridFill } from 'react-icons/bs';
 
 const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, primary, selectedVerse }) => {
-    const [isOpen, setIsOpen] = useState(isVerse ? true : false);
+    // const [isOpen, setIsOpen] = useState(isVerse ? true : false);
+    const [isOpen, setIsOpen] = useState(true);
     let defaultComponent = primary
     let selectorMessage = ''
     const chevronUp = <FaChevronUp />
     const chevronDown = <FaChevronDown />
-    if (isVerse) { 
-        selectorMessage = book + ' chapter ' + chapter + ' has ' + numbers + ' verses ' ;
-    } else {
-        selectorMessage = book + ' has ' + numbers + ' chapters '
-    }
+   
     useEffect(() => {
     }, [isOpen])
 
@@ -24,9 +21,16 @@ const NumberSelector = ({ title, numbers, chapter, book, isVerse, setVerse, prim
     return (
         <>
             <div className="alert alert-danger" role="alert">
-                { selectorMessage }
+                { 
+                    isVerse ?
+                        <span>  <strong>{book}</strong> chapter <strong>{chapter}</strong> has <strong>{numbers}</strong> verses </span>
+                        // selectorMessage = book + ' chapter ' + chapter + ' has ' + numbers + ' verses ' ;
+                    :
+                        <span>  <strong>{book}</strong> has <strong>{numbers}</strong> chapters </span>
+                        // selectorMessage = book + ' has ' + numbers + ' chapters '
+                }
             </div>
-            <h3> 
+            <h3 className="mb-3"> 
                 
                 <button 
                     className="btn btn-danger"

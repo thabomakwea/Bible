@@ -48,11 +48,11 @@ const ChapterDetails = ({ data, pageContext }) => {
                 total: 50
             },
             {
-                title: "1 Samuel",
+                title: "1 Kings",
                 total: 50
             },
             {
-                title: "2 Samuel",
+                title: "2 Kings",
                 total: 50
             },
             {
@@ -293,7 +293,7 @@ const ChapterDetails = ({ data, pageContext }) => {
             testament={pageContext.data.nodes[0].book}
             chapter={pageContext.chapter}
             totalChapters={pageContext.total_chapters}
-            numbers={data.allLeviticus.edges.length}
+            numbers={data.allOneKings.edges.length}
             book={pageContext.data.nodes[0].book}
             setVerse={setVerse}
             selectedVerse={verse}
@@ -315,7 +315,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             </div>
                         </div>
                         <Verse
-                            verses={data.allLeviticus}
+                            verses={data.allOneKings}
                             selectedVerse={verse}
                         />
 
@@ -329,7 +329,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             {
 
                                 books.newTestament.map((el, i) =>
-                                    <Book key={i} title={el.title} count={el.total} colSize={4} link={el.link}></Book>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4} ></Book>
                                 )
                             }
                         </Books>
@@ -338,7 +338,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             {
 
                                 books.oldTestament.map((el, i) =>
-                                    <Book key={i} title={el.title} count={el.total} colSize={4} link={el.link}></Book>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
                             }
                         </Books>
@@ -347,13 +347,13 @@ const ChapterDetails = ({ data, pageContext }) => {
                     <div className="col-4 offset-1">
 
                         <ChapterHeader
-                            darkText={data.allLeviticus.edges.length}
+                            darkText={data.allOneKings.edges.length}
                             normalText={'Verses'}
                         />
 
                         <NumberSelector
                             title={'Select a verse'}
-                            numbers={data.allLeviticus.edges.length}
+                            numbers={data.allOneKings.edges.length}
                             chapter={pageContext.chapter}
                             book={pageContext.data.nodes[0].book}
                             isVerse={true}
@@ -391,8 +391,8 @@ const ChapterDetails = ({ data, pageContext }) => {
 export default ChapterDetails
 
 export const query = graphql`
-query LeviticusChapters ($chapter: String) {
-    allLeviticus(filter: { chapter: { eq: $chapter } }) {
+query OneKingsChapters ($chapter: String) {
+    allOneKings(filter: { chapter: { eq: $chapter } }) {
     edges {
       node {
                 book

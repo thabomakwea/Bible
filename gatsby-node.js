@@ -1,4 +1,6 @@
-exports.onPreInit = () => console.log("hello plugin")
+exports.onPreInit = () => { 
+
+}
 // CREATE NOTE
 const path = require('path')
 
@@ -71,6 +73,32 @@ exports.createPages = async ({actions, graphql}) => {
                 }
                 }
             },
+            allJoshua {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allJudges {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
             allRuth {
                 group(field: chapter) {
                 field
@@ -83,7 +111,59 @@ exports.createPages = async ({actions, graphql}) => {
                     bible
                 }
                 }
-            }
+            },
+            allOneSamuel {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allTwoSamuel {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allOneKings {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allTwoKings {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
         }
 
 
@@ -169,8 +249,8 @@ exports.createPages = async ({actions, graphql}) => {
 
     data.allJudges.group.forEach(group => {
         actions.createPage({
-            path: '/kjv21/Judges/' + group.fieldValue,
-            component: path.resolve('./src/templates/Judges.js'),
+            path: '/kjv21/judges/' + group.fieldValue,
+            component: path.resolve('./src/templates/judges.js'),
             context: {
                 chapter: group.fieldValue,
                 total_chapters: data.allJudges.group.length,
@@ -193,4 +273,55 @@ exports.createPages = async ({actions, graphql}) => {
         })
     });
 
+    data.allOneSamuel.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/1-samuel/' + group.fieldValue,
+            component: path.resolve('./src/templates/1-samuel.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allOneSamuel.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allTwoSamuel.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/2-samuel/' + group.fieldValue,
+            component: path.resolve('./src/templates/2-samuel.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allTwoSamuel.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allOneKings.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/1-kings/' + group.fieldValue,
+            component: path.resolve('./src/templates/1-kings.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allOneKings.group.length,
+                data: group
+
+            }
+        })
+    });
+
+    data.allTwoKings.group.forEach(group => {
+        actions.createPage({
+            path: '/kjv21/2-kings/' + group.fieldValue,
+            component: path.resolve('./src/templates/2-kings.js'),
+            context: {
+                chapter: group.fieldValue,
+                total_chapters: data.allTwoKings.group.length,
+                data: group
+
+            }
+        })
+    });
 }
