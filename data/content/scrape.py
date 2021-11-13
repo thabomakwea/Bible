@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 bible = "21st Century King James version";
 bibleCode = "KJV21";
 testament= "old";
-book = "Nehemiah";
-chapters = 14;
+book = "Malachi";
+chapters = 5;
 verses = []
 
 r = '{'
@@ -17,7 +17,7 @@ r += '"' + book + '": {'
 
 for a in range(1, chapters):
     response = requests.get(
-        'https://www.biblegateway.com/passage/?search=Nehemiah+' + str(a) + '&version=KJ21')
+        'https://www.biblegateway.com/passage/?search=Malachi+' + str(a) + '&version=KJ21')
     html = response.text
     soup = BeautifulSoup(html, "html.parser")
 
@@ -30,7 +30,7 @@ for a in range(1, chapters):
     for b, tag in enumerate(soup.find_all("p")):
 
         if(str(tag.find_next("span").get("id")) != "None"):
-            r += '"Nehemiah2coOAF2dByWwsL1S' + str(a) + str(b) + '": {'
+            r += '"Malachi2coOAF2dByWwsL1S' + str(a) + str(b) + '": {'
             r += '"chapter": ' + '"' + str(a) + '",'
             r += '"book": ' + '"' + book + '",'
             r += '"text": ' + json.dumps( re.sub('<[^<]+?>', '', str(tag)) ) + ','
@@ -88,6 +88,6 @@ r += '}'
 # r += '}'
 # r += '}'
 
-f = open("dataBackup.txt", "w+")
+f = open("malachi.json", "w+")
 f.write(r)
 f.close()

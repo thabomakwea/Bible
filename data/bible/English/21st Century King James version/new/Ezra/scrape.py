@@ -8,7 +8,7 @@ bible = "21st Century King James version";
 bibleCode = "KJV21";
 testament= "old";
 book = "Ezra";
-chapters = 30;
+chapters = 11;
 verses = []
 
 r = '{'

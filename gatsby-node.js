@@ -1,5 +1,296 @@
 exports.onPreInit = () => { 
+    const { firestoreImport } = require( 'node-firestore-import-export')
+    const firebase = require("firebase-admin");
+    const books = {
+        newTestament: [
+            {
+                title: "Genesis",
+                path: require("./data/content/genesis.json")
+            },
+            {
+                title: "Exodus",
+                path: require("./data/content/exodus.json")
+            },
+            {
+                title: "Leviticus",
+                path: require("./data/content/leviticus.json")
+            },
+            {
+                title: "Numbers",
+                path: require("./data/content/numbers.json")
+            },
+            {
+                title: "Deuteronomy",
+                path: require("./data/content/deuteronomy.json")
+            },
+            {
+                title: "Joshua",
+                path: require("./data/content/joshua.json")
+            },
+            {
+                title: "Judges",
+                path: require("./data/content/judges.json")
+            },
+            {
+                title: "Ruth",
+                path: require("./data/content/ruth.json")
+            },
+            {
+                title: "1-Samuel",
+                path: require("./data/content/1-Samuel.json")
+            },
+            {
+                title: "2-Samuel",
+                path: require("./data/content/2-Samuel.json")
+            },
+            {
+                title: "1-Kings",
+                path: require("./data/content/1-Kings.json")
+            },
+            {
+                title: "2-Kings",
+                path: require("./data/content/2-Kings.json")
+            },
+            {
+                title: "1-Chronicles",
+                path: require("./data/content/1-Chronicles.json")
+            },
+            {
+                title: "2-Chronicles",
+                path: require("./data/content/2-Chronicles.json")
+            },
+            {
+                title: "Ezra",
+                path: require("./data/content/ezra.json")
+            }
+            // {
+            //     title: "Nehemiah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Esther",
+            //     path: ""
+            // },
+            // {
+            //     title: "Job",
+            //     path: ""
+            // },
+            // {
+            //     title: "Psalms",
+            //     path: ""
+            // },
+            // {
+            //     title: "Proverbs",
+            //     path: ""
+            // },
+            // {
+            //     title: "Ecclesiastes",
+            //     path: ""
+            // },
+            // {
+            //     title: "Song of Songs",
+            //     path: ""
+            // },
+            // {
+            //     title: "Isaiah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Jeremiah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Lamentation",
+            //     path: ""
+            // },
+            // {
+            //     title: "Ezekiel",
+            //     path: ""
+            // },
+            // {
+            //     title: "Daniel",
+            //     path: ""
+            // },
+            // {
+            //     title: "Hosea",
+            //     path: ""
+            // },
+            // {
+            //     title: "Joel",
+            //     path: ""
+            // },
+            // {
+            //     title: "Amos",
+            //     path: ""
+            // },
+            // {
+            //     title: "Obadiah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Jonah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Micah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Nahum",
+            //     path: ""
+            // },
+            // {
+            //     title: "Habakkuk",
+            //     path: ""
+            // },
+            // {
+            //     title: "Zephaniah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Haggai",
+            //     path: ""
+            // },
+            // {
+            //     title: "Zechariah",
+            //     path: ""
+            // },
+            // {
+            //     title: "Malachi",
+            //     path: ""
+            // },
 
+        ]
+        // oldTestament: [
+        //     {
+        //         title: "Matthew",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Mark",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Luke",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "John",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Acts",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Romans",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "1 Corinthians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "2 Corinthians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Galatians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Ephesians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Philippians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Colossians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "1 Thessalonians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "2 Thessalonians",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "1 Timothy",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "2 Timothy",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Titus",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Philemon",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Hebrews",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "James",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "1 Peter",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "2 Peter",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "1 John",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "2 John",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "3 John",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Jude",
+        //         path: ""
+        //     },
+        //     {
+        //         title: "Revelation",
+        //         path: ""
+        //     }
+
+        // ]
+
+    }
+    firebase.initializeApp({
+        projectId: "bible-site"
+    })
+
+    const db = firebase.firestore()
+
+    db.settings({
+        host: "localhost:9657",
+        ssl: false
+    });
+    
+    // const data = require('ezra.json')    
+
+    books.newTestament.map((book, i) => {
+        firestoreImport(book.path, firebase.firestore().collection(book.title))
+            .then(() => console.log('Data was imported.'));
+    })
 }
 // CREATE NOTE
 const path = require('path')
