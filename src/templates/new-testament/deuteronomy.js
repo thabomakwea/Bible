@@ -1,13 +1,13 @@
 import * as React from "react"
-import Layout from "../components/layouts/layout"
-import Pagination from "../components/common/pagination/pagination"
-import ChapterHeader from "../components/common/chapter-header/chapter_header"
+import Layout from "../../components/layouts/layout"
+import Pagination from "../../components/common/pagination/pagination"
+import ChapterHeader from "../../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
-import Verse from "../components/common/verse/verse"
-import NumberSelector from "../components/common/number_selector/number_selector"
-import Spacing from "../components/common/spacing/spacing"
-import Books from "../components/common/books/books"
-import Book from "../components/common/book/book"
+import Verse from "../../components/common/verse/verse"
+import NumberSelector from "../../components/common/number_selector/number_selector"
+import Spacing from "../../components/common/spacing/spacing"
+import Books from "../../components/common/books/books"
+import Book from "../../components/common/book/book"
 import './testament.css'
 import { useState, useEffect } from 'react';
 
@@ -48,11 +48,11 @@ const ChapterDetails = ({ data, pageContext }) => {
                 total: 50
             },
             {
-                title: "1 Kings",
+                title: "1 Samuel",
                 total: 50
             },
             {
-                title: "2 Kings",
+                title: "2 Samuel",
                 total: 50
             },
             {
@@ -293,7 +293,7 @@ const ChapterDetails = ({ data, pageContext }) => {
             testament={pageContext.data.nodes[0].book}
             chapter={pageContext.chapter}
             totalChapters={pageContext.total_chapters}
-            numbers={data.allTwoKings.edges.length}
+            numbers={data.allDeuteronomy.edges.length}
             book={pageContext.data.nodes[0].book}
             setVerse={setVerse}
             selectedVerse={verse}
@@ -315,7 +315,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             </div>
                         </div>
                         <Verse
-                            verses={data.allTwoKings}
+                            verses={data.allDeuteronomy}
                             selectedVerse={verse}
                         />
 
@@ -327,16 +327,14 @@ const ChapterDetails = ({ data, pageContext }) => {
                         <Spacing />
                         <Books title="New testament">
                             {
-
                                 books.newTestament.map((el, i) =>
-                                    <Book key={i} title={el.title} count={el.total} colSize={4} ></Book>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
                             }
                         </Books>
                         <Spacing></Spacing>
                         <Books title="Old testament">
                             {
-
                                 books.oldTestament.map((el, i) =>
                                     <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
@@ -347,13 +345,13 @@ const ChapterDetails = ({ data, pageContext }) => {
                     <div className="col-4 offset-1">
 
                         <ChapterHeader
-                            darkText={data.allTwoKings.edges.length}
+                            darkText={data.allDeuteronomy.edges.length}
                             normalText={'Verses'}
                         />
 
                         <NumberSelector
                             title={'Select a verse'}
-                            numbers={data.allTwoKings.edges.length}
+                            numbers={data.allDeuteronomy.edges.length}
                             chapter={pageContext.chapter}
                             book={pageContext.data.nodes[0].book}
                             isVerse={true}
@@ -391,8 +389,8 @@ const ChapterDetails = ({ data, pageContext }) => {
 export default ChapterDetails
 
 export const query = graphql`
-query KingsChapters ($chapter: String) {
-    allTwoKings(filter: { chapter: { eq: $chapter } }) {
+query DeuteronomyChapters ($chapter: String) {
+    allDeuteronomy(filter: { chapter: { eq: $chapter } }) {
     edges {
       node {
                 book

@@ -184,10 +184,307 @@ module.exports = {
               text: doc.text,
               verse: doc.verse
             }),
+          },
+          {
+            type: 'OneChronicles',
+            collection: '1-Chronicles',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'TwoChronicles',
+            collection: '2-Chronicles',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Ezra',
+            collection: 'Ezra',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Nehemiah',
+            collection: 'Nehemiah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Esther',
+            collection: 'Esther',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Job',
+            collection: 'Job',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Psalms',
+            collection: 'Psalms',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Proverbs',
+            collection: 'Proverbs',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Ecclesiastes',
+            collection: 'Ecclesiastes',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'SongOfSolomon',
+            collection: 'Song-of-Solomon',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Isaiah',
+            collection: 'Isaiah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Jeremiah',
+            collection: 'Jeremiah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Lamentations',
+            collection: 'Lamentations',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Ezekiel',
+            collection: 'Ezekiel',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Daniel',
+            collection: 'Daniel',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Hosea',
+            collection: 'Hosea',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Joel',
+            collection: 'Joel',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Amos',
+            collection: 'Amos',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Obadiah',
+            collection: 'Obadiah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Jonah',
+            collection: 'Jonah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Micah',
+            collection: 'Micah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Nahum',
+            collection: 'Nahum',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Habakkuk',
+            collection: 'Habakkuk',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Zephaniah',
+            collection: 'Zephaniah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Haggai',
+            collection: 'Haggai',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Zechariah',
+            collection: 'Zechariah',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
+          },
+          {
+            type: 'Malachi',
+            collection: 'Malachi',
+            map: doc => ({
+              bible: doc.bible,
+              book: doc.book,
+              chapter: doc.chapter,
+              text: doc.text,
+              verse: doc.verse
+            }),
           }
         ]
       }
-    },
+    }
     // {
       // resolve: "gatsby-plugin-firebase",
       // options: {

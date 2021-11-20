@@ -1,13 +1,13 @@
 import * as React from "react"
-import Layout from "../components/layouts/layout"
-import Pagination from "../components/common/pagination/pagination"
-import ChapterHeader from "../components/common/chapter-header/chapter_header"
+import Layout from "../../components/layouts/layout"
+import Pagination from "../../components/common/pagination/pagination"
+import ChapterHeader from "../../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
-import Verse from "../components/common/verse/verse"
-import NumberSelector from "../components/common/number_selector/number_selector"
-import Spacing from "../components/common/spacing/spacing"
-import Books from "../components/common/books/books"
-import Book from "../components/common/book/book"
+import Verse from "../../components/common/verse/verse"
+import NumberSelector from "../../components/common/number_selector/number_selector"
+import Spacing from "../../components/common/spacing/spacing"
+import Books from "../../components/common/books/books"
+import Book from "../../components/common/book/book"
 import './testament.css'
 import { useState, useEffect } from 'react';
 
@@ -293,7 +293,7 @@ const ChapterDetails = ({ data, pageContext }) => {
             testament={pageContext.data.nodes[0].book}
             chapter={pageContext.chapter}
             totalChapters={pageContext.total_chapters}
-            numbers={data.allNumbers.edges.length}
+            numbers={data.allZechariah.edges.length}
             book={pageContext.data.nodes[0].book}
             setVerse={setVerse}
             selectedVerse={verse}
@@ -315,7 +315,7 @@ const ChapterDetails = ({ data, pageContext }) => {
                             </div>
                         </div>
                         <Verse
-                            verses={data.allNumbers}
+                            verses={data.allZechariah}
                             selectedVerse={verse}
                         />
 
@@ -327,16 +327,14 @@ const ChapterDetails = ({ data, pageContext }) => {
                         <Spacing />
                         <Books title="New testament">
                             {
-
                                 books.newTestament.map((el, i) =>
-                                    <Book key={i} title={el.title} count={el.total} colSize={4} ></Book>
+                                    <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
                             }
                         </Books>
                         <Spacing></Spacing>
                         <Books title="Old testament">
                             {
-
                                 books.oldTestament.map((el, i) =>
                                     <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
@@ -347,13 +345,13 @@ const ChapterDetails = ({ data, pageContext }) => {
                     <div className="col-4 offset-1">
 
                         <ChapterHeader
-                            darkText={data.allNumbers.edges.length}
+                            darkText={data.allZechariah.edges.length}
                             normalText={'Verses'}
                         />
 
                         <NumberSelector
                             title={'Select a verse'}
-                            numbers={data.allNumbers.edges.length}
+                            numbers={data.allZechariah.edges.length}
                             chapter={pageContext.chapter}
                             book={pageContext.data.nodes[0].book}
                             isVerse={true}
@@ -391,8 +389,8 @@ const ChapterDetails = ({ data, pageContext }) => {
 export default ChapterDetails
 
 export const query = graphql`
-query NumbersChapters ($chapter: String) {
-    allNumbers(filter: { chapter: { eq: $chapter } }) {
+query ZechariahChapters ($chapter: String) {
+    allZechariah(filter: { chapter: { eq: $chapter } }) {
     edges {
       node {
                 book

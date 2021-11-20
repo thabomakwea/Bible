@@ -1,13 +1,13 @@
 import * as React from "react"
-import Layout from "../components/layouts/layout"
-import Pagination from "../components/common/pagination/pagination"
-import ChapterHeader from "../components/common/chapter-header/chapter_header"
+import Layout from "../../components/layouts/layout"
+import Pagination from "../../components/common/pagination/pagination"
+import ChapterHeader from "../../components/common/chapter-header/chapter_header"
 import { graphql } from 'gatsby'
-import Verse from "../components/common/verse/verse"
-import NumberSelector from "../components/common/number_selector/number_selector"
-import Spacing from "../components/common/spacing/spacing"
-import Books from "../components/common/books/books"
-import Book from "../components/common/book/book"
+import Verse from "../../components/common/verse/verse"
+import NumberSelector from "../../components/common/number_selector/number_selector"
+import Spacing from "../../components/common/spacing/spacing"
+import Books from "../../components/common/books/books"
+import Book from "../../components/common/book/book"
 import './testament.css'
 import { useState, useEffect } from 'react';
 
@@ -287,13 +287,13 @@ const ChapterDetails = ({ data, pageContext }) => {
 
     }
 
-  
+
     return (
         <Layout
-            testament={ pageContext.data.nodes[0].book }
-            chapter={pageContext.chapter }
+            testament={pageContext.data.nodes[0].book}
+            chapter={pageContext.chapter}
             totalChapters={pageContext.total_chapters}
-            numbers={data.allGenesis.edges.length}
+            numbers={data.allHabakkuk.edges.length}
             book={pageContext.data.nodes[0].book}
             setVerse={setVerse}
             selectedVerse={verse}
@@ -301,12 +301,12 @@ const ChapterDetails = ({ data, pageContext }) => {
             <div className="container chapter">
 
                 <div className="row">
-                   
+
                     <div className="col-7">
 
                         <ChapterHeader
-                            darkText={ 'Chapter ' + pageContext.chapter }
-                            normalText={ pageContext.data.nodes[0].book }
+                            darkText={'Chapter ' + pageContext.chapter}
+                            normalText={pageContext.data.nodes[0].book}
                         />
 
                         <div className="alert alert-danger d-flex align-items-center" role="alert">
@@ -314,20 +314,19 @@ const ChapterDetails = ({ data, pageContext }) => {
                                 You are reading <strong> {pageContext.data.nodes[0].book}</strong>&nbsp; chapter <strong> {pageContext.chapter}</strong> &nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
-                        <Verse 
-                            verses={data.allGenesis }
-                            selectedVerse = { verse }
+                        <Verse
+                            verses={data.allHabakkuk}
+                            selectedVerse={verse}
                         />
-                        
-                        <Pagination 
-                            currentChapter={pageContext.chapter} 
-                            totalChapters={pageContext.total_chapters} 
-                            book={pageContext.data.nodes[0].book} 
+
+                        <Pagination
+                            currentChapter={pageContext.chapter}
+                            totalChapters={pageContext.total_chapters}
+                            book={pageContext.data.nodes[0].book}
                         />
                         <Spacing />
                         <Books title="New testament">
                             {
-
                                 books.newTestament.map((el, i) =>
                                     <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
@@ -336,34 +335,33 @@ const ChapterDetails = ({ data, pageContext }) => {
                         <Spacing></Spacing>
                         <Books title="Old testament">
                             {
-
                                 books.oldTestament.map((el, i) =>
                                     <Book key={i} title={el.title} count={el.total} colSize={4}></Book>
                                 )
                             }
                         </Books>
                     </div>
-                    
+
                     <div className="col-4 offset-1">
 
                         <ChapterHeader
-                            darkText={data.allGenesis.edges.length}
+                            darkText={data.allHabakkuk.edges.length}
                             normalText={'Verses'}
                         />
 
                         <NumberSelector
-                            title = { 'Select a verse' }
-                            numbers = { data.allGenesis.edges.length }
+                            title={'Select a verse'}
+                            numbers={data.allHabakkuk.edges.length}
                             chapter={pageContext.chapter}
-                            book = {pageContext.data.nodes[0].book}
-                            isVerse = { true }
-                            setVerse = { setVerse }
-                            selectedVerse = { verse }
-                            primary = { true }
+                            book={pageContext.data.nodes[0].book}
+                            isVerse={true}
+                            setVerse={setVerse}
+                            selectedVerse={verse}
+                            primary={true}
                         />
 
                         <Spacing />
-                        
+
                         <ChapterHeader
                             darkText={pageContext.total_chapters}
                             normalText={'Chapters'}
@@ -374,13 +372,13 @@ const ChapterDetails = ({ data, pageContext }) => {
                             numbers={pageContext.total_chapters}
                             chapter={pageContext.chapter}
                             book={pageContext.data.nodes[0].book}
-                            isVerse = { false}
+                            isVerse={false}
                             primary={false}
                         />
 
                     </div>
 
-                </div>                
+                </div>
                 <Spacing />
             </div>
 
@@ -391,8 +389,8 @@ const ChapterDetails = ({ data, pageContext }) => {
 export default ChapterDetails
 
 export const query = graphql`
-query GenesisChapters ($chapter: String) {
-    allGenesis(filter: { chapter: { eq: $chapter } }) {
+query HabakkukChapters ($chapter: String) {
+    allHabakkuk(filter: { chapter: { eq: $chapter } }) {
     edges {
       node {
                 book
