@@ -6,7 +6,7 @@ import { FaChevronRight, FaCross } from 'react-icons/fa';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 const Book = ({ children, title, count, data, book, colSize }) => {
-    const link = "/kjv21/" + title.replace(' ', '-').toLowerCase() +"/1"
+    const link = "/kjv21/" + title.replace(/\s/g, '-').toLowerCase() +"/1"
     const cols = "col-" + colSize
     return (
         <>
@@ -19,7 +19,7 @@ const Book = ({ children, title, count, data, book, colSize }) => {
                     <div className="card-header"><div></div>50 Chapters</div>
                     <div className="card-body">
                         <h5 className="card-title">{ title }</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p className="card-text">Some quick example text to build on the card title and malk of the card's content.</p>
                     </div>
                 </div>
                 </div> */}

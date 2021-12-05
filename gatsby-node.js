@@ -161,111 +161,111 @@ const books = {
     oldTestament: [
         {
             title: "Matthew",
-            path: ""
+            path: require("./data/content/matthew.json")
         },
         {
             title: "Mark",
-            path: ""
+            path: require("./data/content/mark.json")
         },
         {
             title: "Luke",
-            path: ""
+            path: require("./data/content/luke.json")
         },
         {
             title: "John",
-            path: ""
+            path: require("./data/content/john.json")
         },
         {
             title: "Acts",
-            path: ""
+            path:  require("./data/content/acts.json")
         },
         {
             title: "Romans",
-            path: ""
+            path: require("./data/content/romans.json")
         },
         {
             title: "1-Corinthians",
-            path: ""
+            path: require("./data/content/1-corinthians.json")
         },
         {
             title: "2-Corinthians",
-            path: ""
+            path: require("./data/content/2-corinthians.json")
         },
         {
             title: "Galatians",
-            path: ""
+            path: require("./data/content/galatians.json")
         },
         {
             title: "Ephesians",
-            path: ""
+            path: require("./data/content/ephesians.json")
         },
         {
             title: "Philippians",
-            path: ""
+            path: require("./data/content/philippians.json")
         },
         {
             title: "Colossians",
-            path: ""
+            path: require("./data/content/colossians.json")
         },
         {
             title: "1-Thessalonians",
-            path: ""
+            path: require("./data/content/1-thessalonians.json")
         },
         {
             title: "2-Thessalonians",
-            path: ""
+            path: require("./data/content/2-thessalonians.json")
         },
         {
             title: "1-Timothy",
-            path: ""
+            path: require("./data/content/1-timothy.json")
         },
         {
             title: "2-Timothy",
-            path: ""
+            path: require("./data/content/2-timothy.json")
         },
         {
             title: "Titus",
-            path: ""
+            path: require("./data/content/titus.json")
         },
         {
             title: "Philemon",
-            path: ""
+            path: require("./data/content/philemon.json")
         },
         {
             title: "Hebrews",
-            path: ""
+            path: require("./data/content/hebrews.json")
         },
         {
             title: "James",
-            path: ""
+            path: require("./data/content/james.json")
         },
         {
             title: "1-Peter",
-            path: ""
+            path: require("./data/content/1-peter.json")
         },
         {
             title: "2-Peter",
-            path: ""
+            path: require("./data/content/2-peter.json")
         },
         {
             title: "1-John",
-            path: ""
+            path: require("./data/content/1-john.json")
         },
         {
             title: "2-John",
-            path: ""
+            path: require("./data/content/2-john.json")
         },
         {
             title: "3-John",
-            path: ""
+            path: require("./data/content/3-john.json")
         },
         {
             title: "Jude",
-            path: ""
+            path: require("./data/content/jude.json")
         },
         {
             title: "Revelation",
-            path: ""
+            path: require("./data/content/revelation.json")
         }
 
     ]
@@ -296,12 +296,17 @@ exports.onPreInit = () => {
         firestoreImport(book.path, firebase.firestore().collection(book.title))
             .then(() => console.log('Data was imported.'));
     })
+
+    books.oldTestament.map((book, i) => {
+        firestoreImport(book.path, firebase.firestore().collection(book.title))
+            .then(() => console.log('oldTestament Data was imported.'));
+    })
 }
 
 
 exports.createPages = async ({actions, graphql}) => {
 
-    const {data} = await graphql(`
+    const { data: newTestamentData} = await graphql(`
         query MyQuery {
             allGenesis {
                 group(field: chapter) {
@@ -357,6 +362,32 @@ exports.createPages = async ({actions, graphql}) => {
                 }
             },
             allDeuteronomy {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allIsaiah {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+                }
+            },
+            allJeremiah {
                 group(field: chapter) {
                 field
                 fieldValue
@@ -790,32 +821,443 @@ exports.createPages = async ({actions, graphql}) => {
 
     `)
 
+    const { data: oldTestamentData } = await graphql(`
+        query OldTestamentQuery {
+            allMatthew {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
 
-    for (const [key, group] of Object.entries(data)) {
-        const book = new Map(Object.entries(group));
-        console.log('Book:',  book.get('group')[0].nodes[0].book.toLowerCase() );
+                }
+            },
+            allMark {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allLuke{
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allJohn {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allActs {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allRomans {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allOneCorinthians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTwoCorinthians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allGalatians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allEphesians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allPhilippians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allColossians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allOneThessalonians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTwoThessalonians {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allOneTimothy {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTwoTimothy {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTitus {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allPhilemon {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allHebrews {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allJames {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allOnePeter {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTwoPeter {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allOneJohn {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allTwoJohn {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allThreeJohn {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allJude {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            },
+            allRevelation {
+                group(field: chapter) {
+                field
+                fieldValue
+                nodes {
+                    verse
+                    text
+                    chapter
+                    book
+                    bible
+                }
+
+                }
+            }
+        }
+    `)
+
+    // New Testament
+
+    for (const [key, group] of Object.entries(newTestamentData)) {
+        const newbooks = new Map(Object.entries(group));
+        console.log('Book:',  newbooks.get('group')[0].nodes[0].book.toLowerCase() );
    
         // Create emp;ty template files | NEW TESTAMENT
 
-        // fs.appendFile(path.join(__dirname, "./src/templates/new-testament", book.get('group')[0].nodes[0].book.toLowerCase()  + '.js'), '', function (err) {
+        // fs.appendFile(path.join(__dirname, "./src/templates/new-testament", newbooks.get('group')[0].nodes[0].book.toLowerCase()  + '.js'), '', function (err) {
         //     if (err) throw err;
         //     console.log('File is created successfully.');
         // });
 
         // Create page
 
-        book.get('group').forEach(group => {
-            actions.createPage({
-                path: '/kjv21/' + book.get('group')[0].nodes[0].book.toLowerCase() + '/' + group.fieldValue,
-                component: path.resolve('./src/templates/new-testament/' + book.get('group')[0].nodes[0].book.toLowerCase() + '.js'),
-                context: {
-                    chapter: group.fieldValue,
-                    total_chapters: book.get('group').length,
-                    data: group
+        // newbooks.get('group').forEach(group => {
+        //     actions.createPage({
+        //         path: '/kjv21/' + newbooks.get('group')[0].nodes[0].book.toLowerCase() + '/' + group.fieldValue,
+        //         component: path.resolve('./src/templates/new-testament/' + newbooks.get('group')[0].nodes[0].book.toLowerCase() + '.js'),
+        //         context: {
+        //             chapter: group.fieldValue,
+        //             total_chapters: newbooks.get('group').length,
+        //             data: group
 
-                } 
-            })
-        });
+        //         } 
+        //     })
+        // });
     }
 
+    //  Old Testament
+    for (const [key, group] of Object.entries(oldTestamentData)) {
+        const oldbooks = new Map(Object.entries(group));
+        // console.log('Book:', oldbooks.get('group')[0].nodes[0].book.toLowerCase());
+
+        // Create emp;ty template files | OLD TESTAMENT
+
+        // fs.appendFile(path.join(__dirname, "./src/templates/old-testament", oldbooks.get('group')[0].nodes[0].book.toLowerCase()  + '.js'), '', function (err) {
+        //     if (err) throw err;
+        //     console.log('File is created successfully.');
+        // });
+
+        // Create page
+
+        // oldbooks.get('group').forEach(group => {
+        //     actions.createPage({
+        //         path: '/kjv21/' + oldbooks.get('group')[0].nodes[0].book.toLowerCase() + '/' + group.fieldValue,
+        //         component: path.resolve('./src/templates/old-testament/' + oldbooks.get('group')[0].nodes[0].book.toLowerCase() + '.js'),
+        //         context: {
+        //             chapter: group.fieldValue,
+        //             total_chapters: oldbooks.get('group').length,
+        //             data: group
+
+        //         }
+        //     })
+        // });
+    }
 }

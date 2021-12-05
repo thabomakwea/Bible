@@ -7,9 +7,7 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "../common/header/header"
+import { SSRProvider } from '@react-aria/ssr';
 import "./layout.css"
 import NavBar from "../common/navbar/navbar"
 import Spacing from "../common/spacing/spacing"
@@ -21,6 +19,7 @@ const Layout = ({ children, testament, chapter, numbers, book, totalChapters, se
   
   return (
     <>
+      <SSRProvider>
       <NavBar />
 
       <Spacing />
@@ -47,6 +46,7 @@ const Layout = ({ children, testament, chapter, numbers, book, totalChapters, se
         selectedVerse={selectedVerse}
         hideBottomNav = { hideBottomNav }
       />
+        </SSRProvider>
     </>
   )
 }

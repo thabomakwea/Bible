@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => {
       },
       {
         title: "Exodus",
-        total: data.allGenesis.nodes.length
+        total: data.allExodus.nodes.length
       },
       {
         title: "Leviticus",
@@ -98,7 +98,7 @@ const IndexPage = ({ data }) => {
         total: 50
       },
       {
-        title: "Song of Songs",
+        title: "Song of solomon",
         total: 50
       },
       {
@@ -110,7 +110,7 @@ const IndexPage = ({ data }) => {
         total: 50
       },
       {
-        title: "Lamentation",
+        title: "Lamentations",
         total: 50
       },
       {
@@ -286,7 +286,7 @@ const IndexPage = ({ data }) => {
   }
 
   chapters.genesis = _.sortBy(chapters.genesis, function (obj) { return +obj.verse })
-  console.log('avg', data.allGenesis.nodes )
+  // console.log('avg', data.allGenesis.nodes )
   return (
     <Layout 
       className="testament"
