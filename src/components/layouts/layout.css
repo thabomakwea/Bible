@@ -190,10 +190,47 @@ p.selected_verse span  {
 }
 
 .navbar ul li span.heading {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
 }
 
 .navbar ul li span.text {
   font-size: 12px;
+}
+
+
+/* SEarch  */
+.search .results .card {
+  background-color: transparent;
+}
+.search ul.results  .heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600; 
+  color: #dc3545;
+}
+
+.search ul.results  .text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px; 
+}
+.search ul.results a {
+  text-decoration: none;
+}
+.search ul.results  .link {
+  font-size: 12px;
+  /* color: #333; */
+}
+.search ul.results  {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.search ul.results  li {
+  margin-bottom: 30px;
+}
+.search ul.results  li span {
+  display: block;
 }

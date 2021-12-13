@@ -935,7 +935,7 @@ module.exports = {
             ...data.allMalachi.edges,
             ...data.allMatthew.edges,
             ...data.allMark.edges,
-            ...data.allLuk.edges,
+            ...data.allLuke.edges,
             ...data.allJohn.edges,
             ...data.allActs.edges,
             ...data.allRomans.edges,

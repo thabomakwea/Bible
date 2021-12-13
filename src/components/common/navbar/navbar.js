@@ -38,28 +38,33 @@ const NavBar = ({ children }) => {
         <nav className = "navbar fixed-top  navbar-dark bg-dark" >
             <div className="container">
                 <div className="col-4">
-                    <Link to="/" className="navbar-brand text-color-black">Holy Bibles</Link>
+                    <Link to="/" className="navbar-brand text-color-black">Bibleway</Link>
                     {/* <Link to="/" className="navbar-brand"> App</Link> */}
                 </div>
                 <div className="col-4 search">
-                    <div className="input-group">
-                        <input 
-                            className="form-control" 
-                            id="search"
-                            type="search"
-                            placeholder="Search holy bibles"
-                            value={query}
-                            onChange={e => {
-                                // navigate(
-                                //     e.target.value ? `/blog/?search=${e.target.value}` : "/blog/"
-                                // )
-                                setQuery(e.target.value)
-                            }}
-                        />
-                        <div className ="input-group-append">
-                            <button className="btn btn-danger" type="button"><FaSearch /></button>
+                    
+                    <form action="/search">
+                        <div className="input-group">
+                            <input 
+                                className="form-control" 
+                                id="search"
+                                name="q"
+                                type="search"
+                                placeholder="Search holy bibles"
+                                value={query}
+                                onChange={e => {
+                                    // navigate(
+                                    //     e.target.value ? `/blog/?search=${e.target.value}` : "/blog/"
+                                    // )
+                                    setQuery(e.target.value)
+                                }}
+                            />
+                            <div className ="input-group-append">
+                                <button className="btn btn-danger" type="submit"><FaSearch /></button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
+                    
                     {
                         results.length > 0 ?
                             <ul>

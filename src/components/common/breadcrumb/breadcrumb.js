@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const Breadcrumb = ({ testament, chapter}) => {
     const breadcrumbs = [
         {
-            title: 'Bible',
+            title: 'Home',
             link: '/'
         },
         {
